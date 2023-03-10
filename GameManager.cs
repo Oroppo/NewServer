@@ -25,8 +25,9 @@ static class GameManager
             Console.WriteLine("Player '{0}' has been added to the game", connectionID);
             JoinGame(connectionID, player);
         }
-
     }
+
+
 
 }
 

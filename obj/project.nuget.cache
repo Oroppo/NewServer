@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WqREFl682oPUEM5j+TLxFk7f16OTld9YrQyIg8z/VUkZUiT0esJVUAaua3YHQN3EASrw8jHDwzb1IA5yFcwbRA==",
+  "dgSpecHash": "tz0Rz1idGsvLHRe3nA+QHY5VMibZohqypPqKnifHha6pLWEKXrfO5hwPjvIogsFA9oHqyhOyl/3PGPTXy6JJRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dante\\source\\repos\\NewServer\\NewServer\\NewServer.csproj",
+  "projectFilePath": "C:\\Users\\Dante\\Documents\\GitHub\\NewServer\\NewServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dante\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Dante\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

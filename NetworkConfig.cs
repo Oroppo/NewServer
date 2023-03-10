@@ -4,10 +4,9 @@ using KaymakNetwork.Network;
 internal static class NetworkConfig
 {
     private static Server _socket;
-
     internal static Server socket
     {
-        get { return _socket; }
+        get { return _socket;}
         set {
             if (_socket != null)
             {

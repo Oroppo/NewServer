@@ -8,6 +8,7 @@ enum ServerPackets
     SInstantiatePlayer,
     SPlayerMove,
     SPlayerRotation,
+    SMessage,
 }
 internal static class NetworkSend
 {
@@ -53,7 +54,7 @@ internal static class NetworkSend
         buffer.WriteSingle(y);
         buffer.WriteSingle(z);
 
-        Console.WriteLine("X: " + x + "Y: " + y + "Z: " + z);
+        //Console.WriteLine("X: " + x + " Y: " + y + " Z: " + z);
         NetworkConfig.socket.SendDataToAll(buffer.Data, buffer.Head);
 
         buffer.Dispose();
@@ -70,6 +71,20 @@ internal static class NetworkSend
         buffer.Dispose();
 
         NetworkSend.SendPlayerRotation(connectionID, rotation);
+    }
+
+    public static void SendMessage(int connectionID, string message)
+    {
+        ByteBuffer buffer = new ByteBuffer(4);
+        buffer.WriteInt32((int)ServerPackets.SMessage);
+        buffer.WriteInt32(connectionID);
+
+        string newMessage = "Player " + connectionID + ": " + message + "\n";
+
+        buffer.WriteString(newMessage);
+        Console.WriteLine(newMessage);
+        NetworkConfig.socket.SendDataToAll(buffer.Data, buffer.Head);
+        buffer.Dispose();
     }
 }
 

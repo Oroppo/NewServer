@@ -889,19 +889,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dante\\.nuget\\packages\\": {}
+    "C:\\Users\\Dante\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dante\\source\\repos\\NewServer\\NewServer\\NewServer.csproj",
+      "projectUniqueName": "C:\\Users\\Dante\\Documents\\GitHub\\NewServer\\NewServer.csproj",
       "projectName": "NewServer",
-      "projectPath": "C:\\Users\\Dante\\source\\repos\\NewServer\\NewServer\\NewServer.csproj",
+      "projectPath": "C:\\Users\\Dante\\Documents\\GitHub\\NewServer\\NewServer.csproj",
       "packagesPath": "C:\\Users\\Dante\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dante\\source\\repos\\NewServer\\NewServer\\obj\\",
+      "outputPath": "C:\\Users\\Dante\\Documents\\GitHub\\NewServer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Dante\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -947,7 +952,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

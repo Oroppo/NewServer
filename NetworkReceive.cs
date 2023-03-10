@@ -9,6 +9,7 @@ enum ClientPackets
     CPing = 1,
     CKeyInput,
     CPlayerRotation,
+    CMessage,
     
 }
 internal static class NetworkReceive
@@ -18,6 +19,7 @@ internal static class NetworkReceive
         NetworkConfig.socket.PacketId[(int)ClientPackets.CPing] = Packet_Ping;
         NetworkConfig.socket.PacketId[(int)ClientPackets.CKeyInput] = Packet_KeyInput;
         NetworkConfig.socket.PacketId[(int)ClientPackets.CPlayerRotation] = Packet_PlayerRotation;
+        NetworkConfig.socket.PacketId[(int)ClientPackets.CMessage] = Packet_Message;
     }
 
     private static void Packet_Ping(int connectionID, ref byte[] data)
@@ -45,6 +47,16 @@ internal static class NetworkReceive
         buffer.Dispose();
 
         GameManager.playerList[connectionID].rotation = rotation;
+    }
+    private static void Packet_Message(int connectionID, ref byte[] data)
+    {
+        ByteBuffer buffer = new ByteBuffer(data);
+        string message = buffer.ReadString();
+
+        buffer.Dispose();
+
+        NetworkSend.SendMessage(connectionID, message);
+
     }
 }
 
