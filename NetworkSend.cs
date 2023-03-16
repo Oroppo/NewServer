@@ -1,5 +1,6 @@
 ﻿using System;
 using KaymakNetwork;
+using System.Numerics;
 
 
 enum ServerPackets
@@ -10,6 +11,7 @@ enum ServerPackets
     SPlayerRotation,
     SMessage,
 }
+
 internal static class NetworkSend
 {
     public static void WelcomeMsg(int connectionID, string msg)
@@ -59,18 +61,22 @@ internal static class NetworkSend
 
         buffer.Dispose();
     }
-    public static void SendPlayerRotation(int connectionID, float rotation)
+    public static void SendPlayerRotation(int connectionID, Quaternion rotation)
     {
         ByteBuffer buffer = new ByteBuffer(4);
         buffer.WriteInt32((int)ServerPackets.SPlayerRotation);
         buffer.WriteInt32(connectionID);
-        buffer.WriteSingle(rotation);
+        buffer.WriteSingle(rotation.X);
+        buffer.WriteSingle(rotation.Y);
+        buffer.WriteSingle(rotation.Z);
+        buffer.WriteSingle(rotation.W);        
 
         if (!GameManager.playerList[connectionID].inGame) return;
-        NetworkConfig.socket.SendDataToAllBut(connectionID,buffer.Data, buffer.Head);
+
+        NetworkConfig.socket.SendDataToAllBut(connectionID, buffer.Data, buffer.Head);
         buffer.Dispose();
 
-        NetworkSend.SendPlayerRotation(connectionID, rotation);
+        SendPlayerRotation(connectionID, rotation);
     }
 
     public static void SendMessage(int connectionID, string message)

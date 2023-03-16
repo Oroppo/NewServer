@@ -28,26 +28,26 @@ public class InputManager
         if(key == Keys.W)
         {
             //Logic for movement
-            tmpPosition.X += GameManager.playerSpeed * ConvertRotationSin(player.rotation); 
-            tmpPosition.Z += GameManager.playerSpeed * ConvertRotationCos(player.rotation);
+            tmpPosition.X += GameManager.playerSpeed; 
+            tmpPosition.Z += GameManager.playerSpeed;
         }
         else if (key == Keys.S)
         {
             //Logic for movement
-            tmpPosition.X -= GameManager.playerSpeed * ConvertRotationSin(player.rotation);
-            tmpPosition.Z -= GameManager.playerSpeed * ConvertRotationCos(player.rotation);
+            tmpPosition.X -= GameManager.playerSpeed;
+            tmpPosition.Z -= GameManager.playerSpeed;
         }
         else if (key == Keys.A)
         {
             //Logic for movement
-            tmpPosition.X -= GameManager.playerSpeed * ConvertRotationCos(player.rotation);
-            tmpPosition.Z += GameManager.playerSpeed * ConvertRotationSin(player.rotation);
+            tmpPosition.X -= GameManager.playerSpeed;
+            tmpPosition.Z += GameManager.playerSpeed;
         }
         else if (key == Keys.D)
         {
             //Logic for movement
-            tmpPosition.X += GameManager.playerSpeed * ConvertRotationCos(player.rotation);
-            tmpPosition.Z -= GameManager.playerSpeed * ConvertRotationSin(player.rotation);
+            tmpPosition.X += GameManager.playerSpeed;
+            tmpPosition.Z -= GameManager.playerSpeed;
         }
         GameManager.playerList[connectionID].position = tmpPosition;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading;
 
 namespace NewServer
@@ -13,7 +14,7 @@ namespace NewServer
 
             NetworkConfig.InitNetwork();
             NetworkConfig.socket.StartListening(8888, 5, 1);
-            Console.WriteLine("Network Has Been Initialized");
+            Console.WriteLine("Network Has Been Initialized at the IP: {0} ", Dns.GetHostEntry(Dns.GetHostName()).AddressList[1]);
         }
         private static void ConsoleThread()
         {

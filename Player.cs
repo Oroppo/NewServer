@@ -9,6 +9,6 @@ class Player
     public bool inGame;
 
     public Vector3 position;
-    public float rotation;
+    public Quaternion rotation;
 
 }

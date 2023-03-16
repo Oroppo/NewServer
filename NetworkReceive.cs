@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using KaymakNetwork;
+using System.Numerics;
 
 
 enum ClientPackets
@@ -12,6 +13,7 @@ enum ClientPackets
     CMessage,
     
 }
+
 internal static class NetworkReceive
 {
     internal static void PacketRouter()
@@ -42,11 +44,14 @@ internal static class NetworkReceive
     private static void Packet_PlayerRotation(int connectionID, ref byte[] data)
     {
         ByteBuffer buffer = new ByteBuffer(data);
-        float rotation = buffer.ReadSingle();
+        float rotX = buffer.ReadSingle();
+        float rotY = buffer.ReadSingle();
+        float rotZ = buffer.ReadSingle();
+        float rotW = buffer.ReadSingle();
 
         buffer.Dispose();
 
-        GameManager.playerList[connectionID].rotation = rotation;
+        GameManager.playerList[connectionID].rotation = new Quaternion(rotX, rotY, rotZ, rotW);
     }
     private static void Packet_Message(int connectionID, ref byte[] data)
     {
