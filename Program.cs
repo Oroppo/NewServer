@@ -12,7 +12,7 @@ namespace NewServer
             threadConsole.Start();
 
             NetworkConfig.InitNetwork();
-            NetworkConfig.socket.StartListening(5555, 5, 1);
+            NetworkConfig.socket.StartListening(8888, 5, 1);
             Console.WriteLine("Network Has Been Initialized");
         }
         private static void ConsoleThread()

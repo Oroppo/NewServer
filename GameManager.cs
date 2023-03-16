@@ -19,6 +19,7 @@ static class GameManager
             connectionID = connectionID,
             inGame = true,
         };
+
         if(!playerList.ContainsKey(connectionID))
         {
             playerList.Add(connectionID, player);
