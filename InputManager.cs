@@ -33,7 +33,7 @@ public class InputManager
         }
         else if (key == Keys.S)
         {
-            //Logic for movement
+            //Logic for movementw
             tmpPosition.X -= GameManager.playerSpeed;
             tmpPosition.Z -= GameManager.playerSpeed;
         }
