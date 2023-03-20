@@ -41,12 +41,14 @@ internal static class NetworkConfig
     internal static void Socket_ConnectionReceived(int connectionID)
     {
         Console.WriteLine("Connection received on index [{0}]", connectionID);
-        NetworkSend.WelcomeMsg(connectionID, "Welcome to the Server!");
+        NetworkSend.ConnectionMessage(connectionID, "Welcome to the Server!");
     }
 
     internal static void Socket_ConnectionLost(int connectionID)
     {
-        Console.WriteLine("Connection lost on index [{0}]", connectionID);
+        string message = "Player " + connectionID+ " has disconnected";
+        NetworkSend.SendMessage(connectionID, message);
+        Console.WriteLine(message);
     }
 }
 

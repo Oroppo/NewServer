@@ -10,7 +10,6 @@ enum ClientPackets
     CKeyInput,
     CPlayerRotation,
     CMessage,
-    
 }
 internal static class NetworkReceive
 {

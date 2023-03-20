@@ -12,7 +12,7 @@ enum ServerPackets
 }
 internal static class NetworkSend
 {
-    public static void WelcomeMsg(int connectionID, string msg)
+    public static void ConnectionMessage(int connectionID, string msg)
     {
         ByteBuffer buffer = new ByteBuffer(4);
         buffer.WriteInt32((int)ServerPackets.SWelcomeMsg);
@@ -78,11 +78,23 @@ internal static class NetworkSend
         ByteBuffer buffer = new ByteBuffer(4);
         buffer.WriteInt32((int)ServerPackets.SMessage);
         buffer.WriteInt32(connectionID);
-
-        string newMessage = "Player " + connectionID + ": " + message + "\n";
+        
+        string newMessage = "Player IP: " + NetworkConfig.socket.ClientIp(connectionID) + "  -  " + message + "\n";
 
         buffer.WriteString(newMessage);
         Console.WriteLine(newMessage);
+        NetworkConfig.socket.SendDataToAll(buffer.Data, buffer.Head);
+        buffer.Dispose();
+    }
+
+    public static void SendDCMessage(int connectionID, string message)
+    {
+        ByteBuffer buffer = new ByteBuffer(4);
+        buffer.WriteInt32((int)ServerPackets.SMessage);
+        buffer.WriteInt32(connectionID);
+
+        buffer.WriteString(message);
+        Console.WriteLine(message);
         NetworkConfig.socket.SendDataToAll(buffer.Data, buffer.Head);
         buffer.Dispose();
     }
